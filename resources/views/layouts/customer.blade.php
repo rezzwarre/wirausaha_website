@@ -162,15 +162,9 @@
 </head>
 <body>
 
-    <!-- Top QR Announcement Bar -->
-    <div class="qr-badge-banner">
-        <span><i class="fas fa-qrcode mr-2"></i> Pindai QR di Pouch Pensil Mahasiswa untuk Akses Cepat Website Penjualan Produk Kami!</span>
-        <a href="{{ route('home') }}#produk-pouch" class="text-warning ml-2 font-weight-bold" style="text-decoration: underline;">Lihat Koleksi Pouch</a>
-    </div>
-
     <!-- Navigation Header -->
-    <header id="header" class="site-header header-scrolled position-relative">
-        <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
+    <header id="header" class="site-header header-scrolled sticky-top bg-white shadow-sm">
+        <nav id="header-nav" class="navbar navbar-expand-lg py-3 px-3">
             <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold text-dark d-flex align-items-center" href="{{ route('home') }}" style="font-size: 24px;">
                     <i class="fas fa-pen-fancy text-primary mr-2" style="color: #2b7a78 !important;"></i> 
@@ -178,7 +172,7 @@
                 </a>
                 <button class="navbar-toggler d-flex d-lg-none flex-column justify-content-around" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="toggler-icon"></span>
+                    <span class="toggler-icon">Menu</span>
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
                 </button>
@@ -188,7 +182,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 gap-3">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 gap-3 py-2">
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('home') ? 'active text-primary font-weight-bold' : '' }}" href="{{ route('home') }}">
                                     <i class="fas fa-home mr-1"></i> Beranda

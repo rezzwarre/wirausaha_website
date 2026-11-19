@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="py-5 bg-light" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
+<!-- <section class="py-5 bg-light" style="background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 mb-4 mb-lg-0">
@@ -12,30 +12,46 @@
                     <i class="fas fa-award mr-1"></i> Produk Inovasi Kewirausahaan Mahasiswa
                 </span>
                 <h1 class="display-5 font-weight-bold text-dark mb-3" style="line-height: 1.2;">
-                    Pouch Pensil Kreatif Berbasis <span style="color: #2b7a78;">QR Code</span> & Kerajinan Modifikasi
+                    Selamat Datang dan Selamat Belanja di Toko Kami
                 </h1>
                 <p class="lead text-muted mb-4">
-                    Solusi perlengkapan kuliah modis, fungsional, dan ramah lingkungan. Setiap pouch pensil kami dilengkapi QR Code interaktif yang langsung menghubungkan Anda ke toko online wirausaha mahasiswa ini.
+                    Semoga anda betah dan menemukan produk yang sesuai dengan selera dan kebutuhan anda.
                 </p>
                 <div class="d-flex flex-wrap gap-2">
                     <a href="#katalog" class="btn btn-primary btn-lg text-white px-4 py-3 font-weight-bold" style="background-color: #2b7a78; border-color: #2b7a78;">
                         <i class="fas fa-shopping-bag mr-2"></i> Belanja Produk Sekarang
                     </a>
-                    <a href="#tentang-kami" class="btn btn-outline-dark btn-lg px-4 py-3 font-weight-bold">
-                        <i class="fas fa-qrcode mr-2"></i> Konsep QR Pouch
-                    </a>
                 </div>
             </div>
-            <div class="col-lg-5 text-center">
-                <div class="position-relative p-3 bg-white rounded-3 shadow-lg d-inline-block">
-                    <img src="{{ asset('template/images/single-image.jpg') }}" alt="Pouch Pensil QR Code" class="img-fluid rounded" style="max-height: 380px; object-fit: cover;">
-                    <div class="position-absolute bottom-0 end-0 m-3 p-3 bg-white rounded-3 shadow text-start border" style="max-width: 210px;">
-                        <div class="d-flex align-items-center mb-1">
-                            <i class="fas fa-qrcode fa-2x text-primary me-2" style="color: #2b7a78 !important;"></i>
-                            <strong class="small">Scan & Belanja Langsung</strong>
-                        </div>
-                        <p class="text-muted extra-small mb-0" style="font-size: 11px;">Pindai QR pada pouch fisik untuk auto-redirect ke katalog ini.</p>
-                    </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- Hero Section -->
+<section class="py-5 d-flex align-items-center" style="
+    min-height: 88vh;
+    background: linear-gradient(90deg, rgba(20, 30, 35, 0.85) 0%, rgba(20, 30, 35, 0.55) 60%, rgba(20, 30, 35, 0.25) 100%), 
+                url('{{ asset('images/bg1.png') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <span class="badge bg-primary text-white px-3 py-2 rounded-pill mb-3" style="background-color: #2b7a78 !important;">
+                    <i class="fas fa-award mr-1"></i> Produk Inovasi Kewirausahaan Mahasiswa
+                </span>
+                <h1 class="display-5 font-weight-bold text-white mb-3" style="line-height: 1.2;">
+                    Selamat Datang dan Selamat Belanja di Toko Kami
+                </h1>
+                <p class="lead text-light mb-4">
+                    Semoga anda betah dan menemukan produk yang sesuai dengan selera dan kebutuhan anda.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="#katalog" class="btn btn-primary btn-lg text-white px-4 py-3 font-weight-bold" style="background-color: #2b7a78; border-color: #2b7a78;">
+                        <i class="fas fa-shopping-bag mr-2"></i> Belanja Produk Sekarang
+                    </a>
                 </div>
             </div>
         </div>
@@ -43,7 +59,7 @@
 </section>
 
 <!-- Fitur Keunggulan -->
-<section class="py-4 border-bottom bg-white">
+<section class="py-5 border-bottom bg-white">
     <div class="container">
         <div class="row g-4 text-center">
             <div class="col-md-3 col-6">
@@ -74,71 +90,6 @@
                     <small class="text-muted">Konfirmasi & tanya stok mudah</small>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Produk Unggulan: Pouch Pensil (Studi Kasus Tugas) -->
-<section id="produk-pouch" class="py-5 bg-white">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-end mb-4">
-            <div>
-                <span class="text-uppercase small font-weight-bold" style="color: #2b7a78;">Fokus Produk Utama</span>
-                <h3 class="font-weight-bold mb-0">Koleksi Pouch Pensil QR Code</h3>
-            </div>
-            <a href="{{ route('home', ['category' => 'pouch-pensil']) }}#katalog" class="btn btn-outline-primary btn-sm font-weight-bold" style="border-color: #2b7a78; color: #2b7a78;">
-                Lihat Semua Pouch <i class="fas fa-arrow-right ml-1"></i>
-            </a>
-        </div>
-
-        <div class="row g-4">
-            @forelse($pouchProducts as $pouch)
-                <div class="col-lg-3 col-md-6">
-                    <div class="card-product-custom">
-                        <div class="position-relative">
-                            <img src="{{ $pouch->image_url }}" alt="{{ $pouch->name }}" class="card-product-img">
-                            <span class="position-absolute top-0 start-0 m-2 badge bg-dark text-white">
-                                <i class="fas fa-qrcode mr-1"></i> Ber-QR
-                            </span>
-                            @if($pouch->stock <= 0)
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-danger text-white">Habis</span>
-                            @elseif($pouch->stock < 5)
-                                <span class="position-absolute top-0 end-0 m-2 badge bg-warning text-dark">Sisa {{ $pouch->stock }}</span>
-                            @endif
-                        </div>
-                        <div class="product-body">
-                            <span class="text-muted small mb-1">{{ $pouch->category->name }}</span>
-                            <h6 class="font-weight-bold mb-2 text-truncate" title="{{ $pouch->name }}">
-                                <a href="{{ route('products.show', $pouch->slug) }}" class="text-dark text-decoration-none">
-                                    {{ $pouch->name }}
-                                </a>
-                            </h6>
-                            <div class="product-price mb-3">{{ $pouch->formatted_price }}</div>
-                            <div class="mt-auto d-flex gap-2">
-                                <a href="{{ route('products.show', $pouch->slug) }}" class="btn btn-outline-secondary btn-sm flex-fill">
-                                    Detail
-                                </a>
-                                @if($pouch->stock > 0)
-                                    <form action="{{ route('cart.add') }}" method="POST" class="flex-fill">
-                                        @csrf
-                                        <input type="hidden" name="product_id" value="{{ $pouch->id }}">
-                                        <input type="hidden" name="quantity" value="1">
-                                        <button type="submit" class="btn btn-primary btn-sm w-100 text-white font-weight-bold" style="background-color: #2b7a78; border-color: #2b7a78;">
-                                            <i class="fas fa-cart-plus"></i> Beli
-                                        </button>
-                                    </form>
-                                @else
-                                    <button class="btn btn-secondary btn-sm flex-fill" disabled>Habis</button>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @empty
-                <div class="col-12 text-center py-4">
-                    <p class="text-muted">Belum ada produk pouch pensil yang ditampilkan.</p>
-                </div>
-            @endforelse
         </div>
     </div>
 </section>
