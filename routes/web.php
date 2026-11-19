@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BankAccountController as AdminBankAccountController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\CompanySettingController as AdminCompanySettingController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
@@ -80,4 +81,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/bank-accounts', [AdminBankAccountController::class, 'store'])->name('bank-accounts.store');
     Route::put('/bank-accounts/{id}', [AdminBankAccountController::class, 'update'])->name('bank-accounts.update');
     Route::delete('/bank-accounts/{id}', [AdminBankAccountController::class, 'destroy'])->name('bank-accounts.destroy');
+
+    // Company Phone & Contact Settings
+    Route::get('/company-setting', [AdminCompanySettingController::class, 'edit'])->name('company-setting.edit');
+    Route::put('/company-setting', [AdminCompanySettingController::class, 'update'])->name('company-setting.update');
 });

@@ -287,7 +287,7 @@
                         Dengan membeli produk kami, Anda mendukung kreativitas mahasiswa dalam menciptakan produk bernilai tambah tinggi, ramah lingkungan (upcycling bahan perca dan denim), serta pengembangan sistem bisnis digital modern.
                     </p>
                     <div class="d-flex gap-3 align-items-center mt-4">
-                        <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Admin, saya tertarik untuk custom order produk kerajinan mahasiswa.') }}" 
+                        <a href="https://wa.me/{{ $companySetting->clean_whatsapp ?? '6281234567890' }}?text={{ urlencode('Halo Admin ' . ($companySetting->company_name ?? 'Wirausahagoo') . ', saya tertarik untuk custom order produk kerajinan mahasiswa.') }}" 
                            target="_blank" class="btn btn-success px-4 py-2 font-weight-bold">
                             <i class="fab fa-whatsapp mr-1"></i> Hubungi Kami di WhatsApp
                         </a>

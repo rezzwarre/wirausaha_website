@@ -296,7 +296,7 @@
     </main>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Admin Wirausahagoo! Saya ingin bertanya tentang produk pouch pensil dan kerajinan mahasiswa.') }}" 
+    <a href="https://wa.me/{{ $companySetting->clean_whatsapp ?? '6281234567890' }}?text={{ urlencode('Halo Admin Wirausahagoo! Saya ingin bertanya tentang produk pouch pensil dan kerajinan mahasiswa.') }}" 
        class="whatsapp-float" target="_blank" title="Chat Admin via WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -307,13 +307,13 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5 class="font-weight-bold mb-3 d-flex align-items-center">
-                        <i class="fas fa-pen-fancy text-primary me-2" style="color: #38bdf8 !important;"></i> WIRAUSAHAGOO
+                        <i class="fas fa-pen-fancy text-primary me-2" style="color: #38bdf8 !important;"></i> {{ strtoupper($companySetting->company_name ?? 'WIRAUSAHAGOO') }}
                     </h5>
                     <p class="mb-3" style="line-height: 1.6;">
                         Platform e-commerce resmi produk karya mahasiswa: pouch pensil ber-QR Code inovatif, totebag kanvas lukis, buku catatan daur ulang, dan aneka kerajinan modifikasi kreatif bernilai wirausaha.
                     </p>
                     <div class="small">
-                        <i class="fas fa-university text-warning me-2"></i> Karya Kewirausahaan Mahasiswa
+                        <i class="fas fa-university text-warning me-2"></i> {{ $companySetting->address ?? 'Karya Kewirausahaan Mahasiswa' }}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -358,9 +358,9 @@
                 <div class="col-lg-3 mb-4">
                     <h6 class="font-weight-bold mb-3">Hubungi Kami (WhatsApp)</h6>
                     <p class="small mb-3">Konsultasi produk dan konfirmasi pesanan secara langsung via WhatsApp:</p>
-                    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Admin Wirausahagoo, saya ingin bertanya tentang produk kerajinan mahasiswa.') }}" 
+                    <a href="https://wa.me/{{ $companySetting->clean_whatsapp ?? '6281234567890' }}?text={{ urlencode('Halo Admin ' . ($companySetting->company_name ?? 'Wirausahagoo') . ', saya ingin bertanya tentang produk kerajinan mahasiswa.') }}" 
                        target="_blank" class="btn btn-success btn-sm text-white px-3 py-2 font-weight-bold shadow-sm" style="background-color: #25d366; border-color: #25d366;">
-                        <i class="fab fa-whatsapp me-1"></i> WhatsApp: 0812-3456-7890
+                        <i class="fab fa-whatsapp me-1"></i> WhatsApp: {{ $companySetting->phone ?? '0812-3456-7890' }}
                     </a>
                 </div>
             </div>

@@ -81,7 +81,7 @@
                             @php
                                 $waProductMsg = urlencode("Halo Admin Wirausahagoo, saya ingin bertanya tentang produk: {$product->name} ({$product->formatted_price}). Apakah stok masih tersedia?");
                             @endphp
-                            <a href="https://wa.me/6281234567890?text={{ $waProductMsg }}" target="_blank" class="btn btn-outline-success btn-lg px-4 font-weight-bold">
+                            <a href="https://wa.me/{{ $companySetting->clean_whatsapp ?? '6281234567890' }}?text={{ $waProductMsg }}" target="_blank" class="btn btn-outline-success btn-lg px-4 font-weight-bold">
                                 <i class="fab fa-whatsapp mr-1"></i> Tanya via WhatsApp
                             </a>
                         </div>
@@ -93,7 +93,7 @@
                     @php
                         $waPoMsg = urlencode("Halo Admin, saya ingin pre-order produk yang sedang habis: {$product->name}.");
                     @endphp
-                    <a href="https://wa.me/6281234567890?text={{ $waPoMsg }}" target="_blank" class="btn btn-outline-success font-weight-bold">
+                    <a href="https://wa.me/{{ $companySetting->clean_whatsapp ?? '6281234567890' }}?text={{ $waPoMsg }}" target="_blank" class="btn btn-outline-success font-weight-bold">
                         <i class="fab fa-whatsapp mr-1"></i> Pre-Order via WhatsApp
                     </a>
                 @endif

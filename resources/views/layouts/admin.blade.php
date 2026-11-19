@@ -116,6 +116,21 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Pengaturan Toko
+            </div>
+
+            <!-- Nav Item - Company Phone & Setting -->
+            <li class="nav-item {{ request()->routeIs('admin.company-setting.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.company-setting.edit') }}">
+                    <i class="fas fa-fw fa-phone-alt"></i>
+                    <span>Kontak & Telp Toko</span></a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <li class="nav-item">

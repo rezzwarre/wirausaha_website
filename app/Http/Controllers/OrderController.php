@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BankAccount;
+use App\Models\CompanySetting;
 use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Http\Request;
@@ -31,8 +32,9 @@ class OrderController extends Controller
         $bankAccounts = BankAccount::where('is_active', true)->get();
 
         // Contact phone for WhatsApp
-        $adminPhone = '6281234567890';
-        $waMessage = urlencode("Halo Admin Wirausahagoo, saya ingin konfirmasi pesanan dengan Kode: {$order->order_code} senilai {$order->formatted_total}.");
+        $setting = CompanySetting::getSettings();
+        $adminPhone = $setting->clean_whatsapp;
+        $waMessage = urlencode("Halo Admin {$setting->company_name}, saya ingin konfirmasi pesanan dengan Kode: {$order->order_code} senilai {$order->formatted_total}.");
         $waUrl = "https://wa.me/{$adminPhone}?text={$waMessage}";
 
         return view('customer.orders.show', compact('order', 'bankAccounts', 'waUrl'));
