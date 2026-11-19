@@ -127,6 +127,36 @@
             background-color: #e9ecef;
             color: #2b7a78;
         }
+
+        /* Footer Visibility Fix */
+        #footer {
+            background-color: #1e293b !important;
+            color: #cbd5e1 !important;
+        }
+        #footer h5, #footer h6 {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        #footer p, #footer small, #footer .text-muted {
+            color: #94a3b8 !important;
+        }
+        #footer a {
+            color: #e2e8f0 !important;
+            text-decoration: none !important;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+        #footer a:hover {
+            color: #38bdf8 !important;
+            transform: translateX(4px);
+        }
+        #footer .footer-link-item {
+            margin-bottom: 10px;
+        }
+        #footer hr {
+            border-color: #334155 !important;
+            opacity: 0.5;
+        }
     </style>
     @stack('styles')
 </head>
@@ -158,7 +188,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 gap-1">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 gap-3">
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('home') ? 'active text-primary font-weight-bold' : '' }}" href="{{ route('home') }}">
                                     <i class="fas fa-home mr-1"></i> Beranda
@@ -272,50 +302,71 @@
     </a>
 
     <!-- Footer -->
-    <footer id="footer" class="py-5 bg-dark text-white mt-5">
+    <footer id="footer" class="py-5 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h5 class="text-white font-weight-bold mb-3">
-                        <i class="fas fa-pen-fancy text-primary mr-2" style="color: #64b5f6 !important;"></i> WIRAUSAHAGOO
+                    <h5 class="font-weight-bold mb-3 d-flex align-items-center">
+                        <i class="fas fa-pen-fancy text-primary me-2" style="color: #38bdf8 !important;"></i> WIRAUSAHAGOO
                     </h5>
-                    <p class="text-muted">
-                        Platform e-commerce produk kerajinan mahasiswa: pouch pensil ber-QR Code inovatif, totebag kanvas lukis, buku catatan daur ulang, dan beragam produk modifikasi kreatif bernilai wirausaha.
+                    <p class="mb-3" style="line-height: 1.6;">
+                        Platform e-commerce resmi produk karya mahasiswa: pouch pensil ber-QR Code inovatif, totebag kanvas lukis, buku catatan daur ulang, dan aneka kerajinan modifikasi kreatif bernilai wirausaha.
                     </p>
-                    <div class="text-muted small">
-                        <i class="fas fa-university mr-2"></i> Karya Kewirausahaan Mahasiswa
+                    <div class="small">
+                        <i class="fas fa-university text-warning me-2"></i> Karya Kewirausahaan Mahasiswa
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Menu Cepat</h6>
-                    <ul class="list-unstyled text-muted">
-                        <li class="mb-2"><a href="{{ route('home') }}" class="text-decoration-none text-muted">Beranda</a></li>
-                        <li class="mb-2"><a href="{{ route('home') }}#katalog" class="text-decoration-none text-muted">Katalog Produk</a></li>
-                        <li class="mb-2"><a href="{{ route('cart.index') }}" class="text-decoration-none text-muted">Keranjang Belanja</a></li>
-                        <li class="mb-2"><a href="{{ route('orders.index') }}" class="text-decoration-none text-muted">Status Pesanan</a></li>
+                    <h6 class="font-weight-bold mb-3">Navigasi Cepat</h6>
+                    <ul class="list-unstyled">
+                        <li class="footer-link-item">
+                            <a href="{{ route('home') }}">
+                                <i class="fas fa-chevron-right me-2 text-primary" style="font-size: 11px;"></i> Beranda
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="{{ route('home') }}#katalog">
+                                <i class="fas fa-chevron-right me-2 text-primary" style="font-size: 11px;"></i> Katalog Produk
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="{{ route('cart.index') }}">
+                                <i class="fas fa-chevron-right me-2 text-primary" style="font-size: 11px;"></i> Keranjang Belanja
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="{{ route('orders.index') }}">
+                                <i class="fas fa-chevron-right me-2 text-primary" style="font-size: 11px;"></i> Riwayat & Status Pesanan
+                            </a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="{{ route('profile.index') }}">
+                                <i class="fas fa-chevron-right me-2 text-primary" style="font-size: 11px;"></i> Profil Akun Saya
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Metode Bayar</h6>
-                    <ul class="list-unstyled text-muted small">
-                        <li class="mb-1"><i class="fas fa-check-circle text-success mr-1"></i> Bank BCA</li>
-                        <li class="mb-1"><i class="fas fa-check-circle text-success mr-1"></i> Bank Mandiri</li>
-                        <li class="mb-1"><i class="fas fa-check-circle text-success mr-1"></i> Bank BRI</li>
-                        <li class="mb-1"><i class="fas fa-check-circle text-success mr-1"></i> QRIS / E-Wallet</li>
+                    <h6 class="font-weight-bold mb-3">Metode Bayar</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Bank BCA</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Bank Mandiri</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Bank BRI</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> QRIS / E-Wallet</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Hubungi Kami (WhatsApp)</h6>
-                    <p class="text-muted small mb-2">Konsultasi produk dan konfirmasi pesanan secara langsung:</p>
-                    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Admin Wirausahagoo, saya ingin bertanya tentang produk kerajinan.') }}" 
-                       target="_blank" class="btn btn-success btn-sm text-white">
-                        <i class="fab fa-whatsapp mr-1"></i> WhatsApp: 0812-3456-7890
+                    <h6 class="font-weight-bold mb-3">Hubungi Kami (WhatsApp)</h6>
+                    <p class="small mb-3">Konsultasi produk dan konfirmasi pesanan secara langsung via WhatsApp:</p>
+                    <a href="https://wa.me/6281234567890?text={{ urlencode('Halo Admin Wirausahagoo, saya ingin bertanya tentang produk kerajinan mahasiswa.') }}" 
+                       target="_blank" class="btn btn-success btn-sm text-white px-3 py-2 font-weight-bold shadow-sm" style="background-color: #25d366; border-color: #25d366;">
+                        <i class="fab fa-whatsapp me-1"></i> WhatsApp: 0812-3456-7890
                     </a>
                 </div>
             </div>
-            <hr class="bg-secondary my-4">
-            <div class="text-center text-muted small">
-                &copy; {{ date('Y') }} <strong>Wirausahagoo</strong> - Proyek Tugas Kewirausahaan Mahasiswa (Pouch Pensil QR Code).
+            <hr class="my-4">
+            <div class="text-center small">
+                &copy; {{ date('Y') }} <strong class="text-white">Wirausahagoo</strong> - Proyek Tugas Kewirausahaan Mahasiswa (Pouch Pensil QR Code).
             </div>
         </div>
     </footer>
