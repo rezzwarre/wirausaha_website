@@ -99,21 +99,33 @@
             display: flex;
             padding-left: 0;
             list-style: none;
-            justify-content: center;
-            margin-top: 25px;
+            margin: 0;
+            align-items: center;
         }
-        .pagination li a, .pagination li span {
-            padding: 8px 16px;
+        .pagination li .page-link {
+            padding: 6px 14px;
             border: 1px solid #ddd;
-            margin: 0 4px;
+            margin: 0 2px;
             color: #333;
             text-decoration: none;
             border-radius: 4px;
+            display: inline-block;
+            font-size: 14px;
         }
-        .pagination li.active span {
+        .pagination li.active .page-link {
             background-color: #2b7a78;
-            color: white;
+            color: white !important;
             border-color: #2b7a78;
+        }
+        .pagination li.disabled .page-link {
+            color: #aaa;
+            background-color: #f8f9fa;
+            border-color: #eee;
+            cursor: not-allowed;
+        }
+        .pagination li:not(.active):not(.disabled) .page-link:hover {
+            background-color: #e9ecef;
+            color: #2b7a78;
         }
     </style>
     @stack('styles')

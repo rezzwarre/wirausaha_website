@@ -187,4 +187,28 @@ class WirausahaEcommerceTest extends TestCase
             'quantity' => 2,
         ]);
     }
+
+    public function test_pagination_renders_clean_bootstrap_html()
+    {
+        // Create 15 products to trigger pagination (limit 10 on admin)
+        for ($i = 1; $i <= 15; $i++) {
+            Product::create([
+                'category_id' => $this->category->id,
+                'name' => "Produk Pagination {$i}",
+                'slug' => "produk-pagination-{$i}",
+                'price' => 20000,
+                'stock' => 10,
+                'is_active' => true,
+            ]);
+        }
+
+        $response = $this->actingAs($this->admin)->get('/admin/products');
+        $response->assertStatus(200);
+
+        // Verify clean Bootstrap pagination HTML without giant unstyled SVGs
+        $response->assertSee('pagination pagination-sm');
+        $response->assertSee('Menampilkan');
+        $response->assertSee('Berikutnya');
+        $response->assertDontSee('<svg class="w-5 h-5"', false);
+    }
 }
